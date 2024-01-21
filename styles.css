@@ -1,0 +1,228 @@
+:root {
+    --gray: #333;
+    --blue1: #c7ebfc;
+    --blue2: #94dbfc;
+    --blue3: #74c1fc;
+    --blue4: #84b4fc;
+    --blue5: #4a93ff;
+    --blue6: #2640e6;
+    --blue7: #2929a7;
+    --blue8: #000078;
+    --blue9: #000022;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--blue1); }
+::-webkit-scrollbar-thumb { background: var(--blue4); }
+::-webkit-scrollbar-thumb:hover { background: var(--blue5); }
+
+body {
+    margin: 0;
+    background-image: url(assets/bg.jpg);
+    background-size:100% 100%;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: rgb(255 255 255 / 20%);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    border-bottom: 1px solid var(--blue5);
+    box-shadow: 0 0 20px var(--blue3);
+    height: 100px;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.page-title {
+    background: -webkit-linear-gradient(var(--blue7), var(--blue8));
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+section {
+    margin-top: 100px;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.card {
+    position: relative;
+    background-color: rgb(255 255 255 / 40%);
+    backdrop-filter: blur(10px);
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: 1px solid var(--blue5);
+    border-radius: 25px;
+    box-shadow: 0 0 20px var(--blue2);
+    padding: 50px;
+    margin: 20px;
+}
+
+.convert {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: var(--blue0);
+    border: 1px solid var(--blue1);
+    box-shadow: 0 0 4px var(--blue5);
+    cursor: pointer;
+}
+
+.station {
+    display: flex;
+    gap: 5px;
+}
+.location-pin {
+    margin-top: 2px;
+    width: 20px;
+    height: 20px;
+    background-image: url(/assets//location-pin.png);
+    background-size: 100%;
+}
+.station>.station-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray);
+}
+
+.weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+.weather>.weather-icon {
+    width: 180px;
+    height: 180px;
+    background-image: url(/assets/sunny.png);
+    background-size: 100%;
+}
+
+.temperature {
+    display: flex;
+    font-weight: 700;
+    font-size: 100px;
+    background: -webkit-linear-gradient(var(--blue6), var(--blue3));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.temperature>span {
+    font-size: 50px;
+    vertical-align: top;
+    margin-top: 15px;
+    font-weight:900;
+}
+
+.more-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.more-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.more-stat>.icon {
+    width: auto;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    padding-top: 40px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray);
+}
+.more-stat>.value {
+    font-size: 20px;
+    font-weight: 900;
+    background: -webkit-linear-gradient(var(--gray), var(--gray));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer {
+    background-color: var(--blue9);
+    height: 1000px;
+}
+
+@media screen and (max-width: 600px) {
+    .weather>.weather-icon {
+        width: 100px;
+        height: 100px;
+    }
+    .card {
+        padding: 40px;
+    }
+    .temperature {
+        font-size: 60px;
+    }
+    .temperature>span {
+        font-size: 30px;
+        margin-top: 10px;
+    }
+    .page-title {
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .page-title {
+        font-size: 30px;
+    }
+    .card {
+        padding: 30px;
+        gap: 10px;
+    }
+    .weather {
+        justify-content: center;
+    }
+    .weather>.weather-icon {
+        width: 60px;
+        height: 60px;
+    }
+    .temperature {
+        font-size: 40px;
+    }
+    .temperature>span {
+        font-size: 21px;
+        margin-top: 7px;
+    }
+}
