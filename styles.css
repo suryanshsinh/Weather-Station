@@ -24,9 +24,10 @@ body {
     background-attachment: fixed;
 }
 
-header {
+.nav-bar {
     background-color: rgb(255 255 255 / 20%);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
@@ -40,7 +41,7 @@ header {
 }
 
 .page-title {
-    background: -webkit-linear-gradient(var(--blue7), var(--blue8));
+    background: -webkit-linear-gradient(var(--blue7), var(--blue5));
     font-size: 50px;
     font-weight: 700;
     text-align: center;
@@ -79,7 +80,7 @@ section {
     margin: 20px;
 }
 
-.convert {
+.convert, .refresh {
     position: absolute;
     top: 40px;
     right: 40px;
@@ -89,11 +90,38 @@ section {
     width: 40px;
     height: 40px;
     font-size: 20px;
+    font-weight: 700;
     border-radius: 10px;
     color: var(--blue0);
     border: 1px solid var(--blue1);
     box-shadow: 0 0 4px var(--blue5);
     cursor: pointer;
+    transition: all 0.15s ease-out;
+}
+
+.convert:hover, .refresh:hover {
+    background-color: var(--blue2);
+    border-color: var(--blue3);
+    box-shadow: 0 0 6px var(--blue5);
+    transition: all 0.15s ease-out;
+}
+
+.convert:active, .refresh:active {
+    background-color: var(--blue3);
+    border-color: var(--blue4);
+    box-shadow: 0 0 8px var(--blue5);
+    transition: all 0.15s ease-out;
+}
+
+.refresh {
+    background-image: url(/assets/refresh.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40%;
+}
+
+.convert {
+    right: 100px !important;
 }
 
 .station {
@@ -104,7 +132,7 @@ section {
     margin-top: 2px;
     width: 20px;
     height: 20px;
-    background-image: url(/assets//location-pin.png);
+    background-image: url(/assets/location-pin.png);
     background-size: 100%;
 }
 .station>.station-name {
@@ -185,12 +213,27 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+    .nav-bar {
+        height: 70px;
+    }
     .weather>.weather-icon {
         width: 100px;
         height: 100px;
     }
     .card {
         padding: 40px;
+        border-radius: 15px;
+    }
+    .convert, .refresh {
+        top: 30px;
+        right: 30px;
+        font-size: 15px;
+        border-radius: 7px;
+        width: 30px;
+        height: 30px;
+    }
+    .convert {
+        right: 70px !important;
     }
     .temperature {
         font-size: 60px;
@@ -203,20 +246,41 @@ footer {
         font-size: 40px;
     }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 400px) {
+    .nav-bar {
+        height: 50px;
+    }
     .page-title {
         font-size: 30px;
     }
     .card {
         padding: 30px;
-        gap: 10px;
+        gap: 20px;
+    }
+    .location-pin {
+        width: 15px;
+        height: 15px;
+    }
+    .station>.station-name {
+        font-size: 15px;
+    }
+    .convert, .refresh {
+        top: 10px;
+        right: 10px;
+        font-size: 15px;
+        border-radius: 7px;
+        width: 30px;
+        height: 30px;
+    }
+    .convert {
+        right: 50px !important;
     }
     .weather {
         justify-content: center;
     }
     .weather>.weather-icon {
-        width: 60px;
-        height: 60px;
+        width: 100px;
+        height: 100px;
     }
     .temperature {
         font-size: 40px;
@@ -224,5 +288,27 @@ footer {
     .temperature>span {
         font-size: 21px;
         margin-top: 7px;
+    }
+
+    .more-stat {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .more-stat>.icon {
+        width: auto;
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: center 0;
+        padding-top: 30px;
+        font-size: 15px;
+    }
+    .more-stat>.value {
+        font-size: 15px;
+        font-weight: 900;
     }
 }
